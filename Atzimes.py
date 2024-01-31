@@ -1,5 +1,6 @@
 import pandas
 import matplotlib.pyplot as plt
+import PySimpleGUI as sg
 
 
 dati = pandas.read_csv("Tabula.csv",encoding='utf-8')
@@ -22,15 +23,29 @@ print("Vidējie noapaļotie procenti")
 print(proc.round())
 
 atzime_list = dati["Atzime"].to_list()
-print(atzime_list)
+
 var_list = dati["Vards"].to_list()
-print(var_list)
-fig, ax = plt.subplots()
-
-fruits = [atzime_list]
-counts = [var_list]
 
 
-ax.bar(1,10)
+sg.theme('DarkBrown1')
+layout = [[sg.Text('Ieraksti procenti, ja gribi iegūt vidējos procentus, ieraksti atzime, ja gribi iegūt vidējo atzīmi, ieraksti punkti, ja gribi iegūt vidējos punktus ')],
+         [sg.InputText(key='A')],
+         [sg.Submit(), sg.Cancel()]]
+window = sg.Window('Window Title', layout)
+event, values = window.read()
+window.close()
+text_input = values['A']
+if text_input.lower() == 'procenti':
+    sg.popup('Vidējie noapaļotie procenti ir', proc.round())
+if text_input.lower() == 'atzime':
+    sg.popup('Vidējā noapaļotā atzīme ir', skaitlis.round())
+if text_input.lower() == 'punkti':
+    sg.popup('Vidējie noapaļotie punkti ir', pun.round())
 
+import numpy as np
+
+x = np.array(['Maksims', 'Zanne', 'Guntars', 'Anna', 'Sandijs', 'Zanete', 'Vilijs', 'Elija', 'Janis', 'Orests', 'Eduarts', 'Lolija', 'Harijs', 'Lolita', 'Larijs', 'Terijs', 'Alise', 'Katrina', 'Zans', 'Davis', 'Jekabs', 'Zita', 'Bobs'])
+y = np.array([8, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 2, 2])
+
+plt.bar(x,y)
 plt.show()
