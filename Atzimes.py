@@ -1,7 +1,7 @@
 import pandas
 import matplotlib.pyplot as plt
 import PySimpleGUI as sg
-
+import numpy as np
 
 dati = pandas.read_csv("Tabula.csv",encoding='utf-8')
 skaitlis=(dati["Atzime"].mean())
@@ -28,7 +28,7 @@ var_list = dati["Vards"].to_list()
 
 
 sg.theme('DarkBrown1')
-layout = [[sg.Text('Ieraksti procenti, ja gribi iegūt vidējos procentus, ieraksti atzime, ja gribi iegūt vidējo atzīmi, ieraksti punkti, ja gribi iegūt vidējos punktus ')],
+layout = [[sg.Text('Ieraksti "procenti", ja gribi iegūt vidējos procentus, ieraksti "atzime"", ja gribi iegūt vidējo atzīmi, ieraksti "punkti", ja gribi iegūt vidējos punktus ')],
          [sg.InputText(key='A')],
          [sg.Submit(), sg.Cancel()]]
 window = sg.Window('Window Title', layout)
@@ -42,10 +42,11 @@ if text_input.lower() == 'atzime':
 if text_input.lower() == 'punkti':
     sg.popup('Vidējie noapaļotie punkti ir', pun.round())
 
-import numpy as np
-
 x = np.array(['Maksims', 'Zanne', 'Guntars', 'Anna', 'Sandijs', 'Zanete', 'Vilijs', 'Elija', 'Janis', 'Orests', 'Eduarts', 'Lolija', 'Harijs', 'Lolita', 'Larijs', 'Terijs', 'Alise', 'Katrina', 'Zans', 'Davis', 'Jekabs', 'Zita', 'Bobs'])
 y = np.array([8, 6, 6, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 2, 2])
 
 plt.bar(x,y)
+plt.xlabel('Vārdi')  
+plt.ylabel('Atzīmes')    
+plt.title('Skolēnu atzīmes')  
 plt.show()
