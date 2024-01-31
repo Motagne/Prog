@@ -28,7 +28,7 @@ var_list = dati["Vards"].to_list()
 
 
 sg.theme('DarkBrown1')
-layout = [[sg.Text('Ieraksti "procenti", ja gribi iegūt vidējos procentus, ieraksti "atzime"", ja gribi iegūt vidējo atzīmi, ieraksti "punkti", ja gribi iegūt vidējos punktus ')],
+layout = [[sg.Text('Ieraksti "procenti", ja gribi iegūt vidējos procentus, ieraksti "atzime", ja gribi iegūt vidējo atzīmi, ieraksti "punkti", ja gribi iegūt vidējos punktus ')],
          [sg.InputText(key='A')],
          [sg.Submit(), sg.Cancel()]]
 window = sg.Window('Window Title', layout)
