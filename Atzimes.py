@@ -23,8 +23,11 @@ print("Vidējie noapaļotie procenti")
 print(proc.round())
 
 atzime_list = dati["Atzime"].to_list()
-
+print("Skolēnu atzīmju lists")
+print(atzime_list)
 var_list = dati["Vards"].to_list()
+print("Skolēnu vārdu lists")
+print(var_list)
 
 
 sg.theme('DarkBrown1')
