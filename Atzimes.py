@@ -32,12 +32,12 @@ print(var_list)
 
 sg.theme('DarkBrown1')
 layout = [[sg.Text('Ieraksti "procenti", ja gribi iegūt vidējos procentus, ieraksti "atzime", ja gribi iegūt vidējo atzīmi, ieraksti "punkti", ja gribi iegūt vidējos punktus ')],
-         [sg.InputText(key='A')],
+         [sg.InputText(key='-IN-')],
          [sg.Submit(), sg.Cancel()]]
 window = sg.Window('Window Title', layout)
 event, values = window.read()
 window.close()
-text_input = values['A']
+text_input = values['-IN-']
 if text_input.lower() == 'procenti':
     sg.popup('Vidējie noapaļotie procenti ir', proc.round())
 if text_input.lower() == 'atzime':
